@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cbrunfpvsrp5x"]
+
+[ext_resource type="FontFile" uid="uid://dlebot7tcxf4j" path="res://Text/Fonts/Courier Std Medium.otf" id="1_3pxhg"]
+
+[resource]
+font = ExtResource("1_3pxhg")
+font_size = 50

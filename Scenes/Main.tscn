@@ -1,11 +1,79 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4ejrpntf15v6"]
+[gd_scene load_steps=6 format=3 uid="uid://b4ejrpntf15v6"]
 
 [ext_resource type="Script" uid="uid://cms3tgft8pyck" path="res://Scenes/Main.gd" id="1_a6kc8"]
-[ext_resource type="Texture2D" uid="uid://ca3r1umlp6ftg" path="res://icon.svg" id="1_n2ly7"]
+[ext_resource type="LabelSettings" uid="uid://cbrunfpvsrp5x" path="res://Text/Settings/Header.tres" id="2_kln2b"]
+[ext_resource type="Script" uid="uid://cqicuxp5vc3nn" path="res://Scripts/date_time.gd" id="2_rgh2o"]
+[ext_resource type="FontFile" uid="uid://dlebot7tcxf4j" path="res://Text/Fonts/Courier Std Medium.otf" id="3_rgh2o"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_pbw6q"]
+font = ExtResource("3_rgh2o")
+font_size = 27
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_a6kc8")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(105, 104)
-texture = ExtResource("1_n2ly7")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.052, 0.052, 0.08, 0.92549)
+
+[node name="DateTime" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.99
+anchor_right = 0.99
+offset_left = -30.0
+offset_bottom = 140.0
+grow_horizontal = 0
+alignment = 1
+script = ExtResource("2_rgh2o")
+
+[node name="Time" type="Label" parent="DateTime"]
+layout_mode = 2
+text = "04:20:29 PM"
+label_settings = ExtResource("2_kln2b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeButton" type="Button" parent="DateTime/Time"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="Date" type="Label" parent="DateTime"]
+layout_mode = 2
+text = "Sat, April 12, 2025"
+label_settings = SubResource("LabelSettings_pbw6q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DateButton" type="Button" parent="DateTime/Date"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="Timer" type="Timer" parent="DateTime"]
+
+[connection signal="pressed" from="DateTime/Time/TimeButton" to="DateTime" method="_on_time_button_pressed"]
+[connection signal="pressed" from="DateTime/Date/DateButton" to="DateTime" method="_on_date_button_pressed"]
+[connection signal="timeout" from="DateTime/Timer" to="DateTime" method="_on_timer_timeout"]
