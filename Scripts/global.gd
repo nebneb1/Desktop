@@ -1,6 +1,7 @@
 extends Node
 
-#signal performance_mode(enabled : bool)
+signal update_color(enabled : bool)
+
 func save_file(file_name : String, variable):
 	var file := FileAccess.open("user://" + file_name + ".var", FileAccess.WRITE)
 	file.store_var(variable)

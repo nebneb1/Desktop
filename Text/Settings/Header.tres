@@ -1,7 +1,13 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cbrunfpvsrp5x"]
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://cbrunfpvsrp5x"]
 
 [ext_resource type="FontFile" uid="uid://dlebot7tcxf4j" path="res://Text/Fonts/Courier Std Medium.otf" id="1_3pxhg"]
 
+[sub_resource type="FontVariation" id="FontVariation_3pxhg"]
+base_font = ExtResource("1_3pxhg")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0, 0, 1.1, 0, 0)
+
 [resource]
-font = ExtResource("1_3pxhg")
-font_size = 50
+font = SubResource("FontVariation_3pxhg")
+font_size = 35
+font_color = Color(0.67451, 0.196078, 0.196078, 1)

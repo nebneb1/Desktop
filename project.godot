@@ -13,6 +13,10 @@ config_version=5
 config/name="Desktop"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.0509804, 0.0509804, 0.0784314, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://vcrlppxoy4ed"
 config/icon="res://icon.svg"
 
 [autoload]

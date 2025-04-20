@@ -84,6 +84,7 @@ func update():
 		HOUR12:
 			var pm : bool = datetime["hour"] > 12
 			if pm: datetime["hour"] -= 12
+			if datetime["hour"] == 0: datetime["hour"] = 12
 			time.text = (
 				("0" if buffer_time and datetime["hour"] < 10 else "") + str(datetime["hour"]) + ":" + 
 				("0" if datetime["minute"] < 10 else "") + str(datetime["minute"]) + " " +
@@ -96,6 +97,7 @@ func update():
 		HOUR12SECONDS:
 			var pm : bool = datetime["hour"] > 12
 			if pm: datetime["hour"] -= 12
+			if datetime["hour"] == 0: datetime["hour"] = 12
 			time.text = (
 				("0" if buffer_time and datetime["hour"] < 10 else "") + str(datetime["hour"]) + ":" + 
 				("0" if datetime["minute"] < 10 else "") + str(datetime["minute"]) + ":" +

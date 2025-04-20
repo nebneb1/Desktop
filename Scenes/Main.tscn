@@ -1,13 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4ejrpntf15v6"]
+[gd_scene load_steps=18 format=3 uid="uid://b4ejrpntf15v6"]
 
-[ext_resource type="Script" uid="uid://cms3tgft8pyck" path="res://Scenes/Main.gd" id="1_a6kc8"]
+[ext_resource type="Script" uid="uid://cms3tgft8pyck" path="res://Scripts/main.gd" id="1_a6kc8"]
 [ext_resource type="LabelSettings" uid="uid://cbrunfpvsrp5x" path="res://Text/Settings/Header.tres" id="2_kln2b"]
 [ext_resource type="Script" uid="uid://cqicuxp5vc3nn" path="res://Scripts/date_time.gd" id="2_rgh2o"]
-[ext_resource type="FontFile" uid="uid://dlebot7tcxf4j" path="res://Text/Fonts/Courier Std Medium.otf" id="3_rgh2o"]
+[ext_resource type="LabelSettings" uid="uid://4erwfha5e2cm" path="res://Text/Settings/Sub.tres" id="4_jw32o"]
+[ext_resource type="Script" uid="uid://40c5mptxpf0l" path="res://Scripts/music_player.gd" id="5_grg3l"]
+[ext_resource type="LabelSettings" uid="uid://dnyaml8165uxg" path="res://Text/Settings/Text.tres" id="6_50glp"]
+[ext_resource type="Texture2D" uid="uid://bw4gorvrtsboh" path="res://Art/PasswordPassword/grabber.PNG" id="7_4kpch"]
+[ext_resource type="StyleBox" uid="uid://dgmyaldc7fny8" path="res://Tres/music_bar.tres" id="7_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://jh1xgheai4do" path="res://Art/PasswordPassword/prev.svg" id="7_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://d3rqxb8vumv54" path="res://Art/PasswordPassword/pause.svg" id="8_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://b3v8syvd33qre" path="res://Art/PasswordPassword/next.svg" id="9_bmxlf"]
+[ext_resource type="Shader" uid="uid://c45f21een78pt" path="res://Shaders/hue_shift2.gdshader" id="11_4kpch"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_pbw6q"]
-font = ExtResource("3_rgh2o")
-font_size = 27
+[sub_resource type="Image" id="Image_grg3l"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 4
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_frkhe"]
+image = SubResource("Image_grg3l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p5hy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.321569, 0.14902, 0.243137, 1)
+
+[sub_resource type="Theme" id="Theme_4kpch"]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("7_4kpch")
+HSlider/icons/grabber_disabled = ExtResource("7_4kpch")
+HSlider/icons/grabber_highlight = ExtResource("7_4kpch")
+HSlider/icons/tick = SubResource("ImageTexture_frkhe")
+HSlider/styles/grabber_area = ExtResource("7_bmxlf")
+HSlider/styles/grabber_area_highlight = ExtResource("7_bmxlf")
+HSlider/styles/slider = SubResource("StyleBoxFlat_1p5hy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jw32o"]
+shader = ExtResource("11_4kpch")
+shader_parameter/hue_shift = 0.784
+shader_parameter/saturation_mult = 0.681
+shader_parameter/value_mult = 1.0
+shader_parameter/keep_dark = true
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -18,29 +59,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a6kc8")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.052, 0.052, 0.08, 0.92549)
+color = Color(0.052, 0.052, 0.08, 1)
 
 [node name="DateTime" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.99
 anchor_right = 0.99
-offset_left = -30.0
-offset_bottom = 140.0
+offset_left = -21.3901
+offset_right = -0.390137
+offset_bottom = 111.0
 grow_horizontal = 0
+pivot_offset = Vector2(330, 0)
 alignment = 1
 script = ExtResource("2_rgh2o")
 
 [node name="Time" type="Label" parent="DateTime"]
 layout_mode = 2
-text = "04:20:29 PM"
+tooltip_text = "test"
+text = "T"
 label_settings = ExtResource("2_kln2b")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,13 +96,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "Click to change time formatting"
 focus_mode = 0
 flat = true
 
 [node name="Date" type="Label" parent="DateTime"]
 layout_mode = 2
-text = "Sat, April 12, 2025"
-label_settings = SubResource("LabelSettings_pbw6q")
+text = "D"
+label_settings = ExtResource("4_jw32o")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -69,11 +114,106 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "Click to change date formatting"
 focus_mode = 0
 flat = true
 
 [node name="Timer" type="Timer" parent="DateTime"]
 
+[node name="Music" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.99
+anchor_top = 1.0
+anchor_right = 0.99
+anchor_bottom = 1.0
+offset_left = -262.39
+offset_top = -124.0
+offset_right = -0.390137
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+script = ExtResource("5_grg3l")
+
+[node name="Song" type="Label" parent="Music"]
+layout_mode = 2
+text = "tetsudou_no_uta.mp3"
+label_settings = ExtResource("6_50glp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Progress" type="HSlider" parent="Music"]
+layout_mode = 2
+theme = SubResource("Theme_4kpch")
+
+[node name="Buttons" type="HBoxContainer" parent="Music"]
+layout_mode = 2
+alignment = 1
+
+[node name="TimeFromStart" type="Label" parent="Music/Buttons"]
+custom_minimum_size = Vector2(0, 23.968)
+layout_mode = 2
+text = "2:38"
+label_settings = ExtResource("4_jw32o")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Previous" type="Button" parent="Music/Buttons"]
+custom_minimum_size = Vector2(27.644, 21.247)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+icon = ExtResource("7_vy5pj")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Pause" type="Button" parent="Music/Buttons"]
+custom_minimum_size = Vector2(16.9995, 20.594)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+icon = ExtResource("8_vy5pj")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Next" type="Button" parent="Music/Buttons"]
+custom_minimum_size = Vector2(33.3005, 21.247)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+icon = ExtResource("9_bmxlf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TotalTime" type="Label" parent="Music/Buttons"]
+custom_minimum_size = Vector2(0, 23.968)
+layout_mode = 2
+text = "3:36"
+label_settings = ExtResource("4_jw32o")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Music"]
+
+[node name="Filter" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_jw32o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="DateTime/Time/TimeButton" to="DateTime" method="_on_time_button_pressed"]
 [connection signal="pressed" from="DateTime/Date/DateButton" to="DateTime" method="_on_date_button_pressed"]
 [connection signal="timeout" from="DateTime/Timer" to="DateTime" method="_on_timer_timeout"]
+[connection signal="pressed" from="Music/Buttons/Previous" to="Music" method="_on_previous_pressed"]
+[connection signal="pressed" from="Music/Buttons/Pause" to="Music" method="_on_pause_pressed"]
+[connection signal="pressed" from="Music/Buttons/Next" to="Music" method="_on_next_pressed"]
