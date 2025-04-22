@@ -1,52 +1,34 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4ejrpntf15v6"]
+[gd_scene load_steps=19 format=3 uid="uid://b4ejrpntf15v6"]
 
 [ext_resource type="Script" uid="uid://cms3tgft8pyck" path="res://Scripts/main.gd" id="1_a6kc8"]
 [ext_resource type="LabelSettings" uid="uid://cbrunfpvsrp5x" path="res://Text/Settings/Header.tres" id="2_kln2b"]
 [ext_resource type="Script" uid="uid://cqicuxp5vc3nn" path="res://Scripts/date_time.gd" id="2_rgh2o"]
 [ext_resource type="LabelSettings" uid="uid://4erwfha5e2cm" path="res://Text/Settings/Sub.tres" id="4_jw32o"]
+[ext_resource type="Script" uid="uid://gmbjlxi5n2rr" path="res://Scripts/drag.gd" id="5_erwvk"]
 [ext_resource type="Script" uid="uid://40c5mptxpf0l" path="res://Scripts/music_player.gd" id="5_grg3l"]
+[ext_resource type="Texture2D" uid="uid://bhgwfefom1s16" path="res://Art/Icons/minimize_200dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png" id="6_1p5hy"]
 [ext_resource type="LabelSettings" uid="uid://dnyaml8165uxg" path="res://Text/Settings/Text.tres" id="6_50glp"]
-[ext_resource type="Texture2D" uid="uid://bw4gorvrtsboh" path="res://Art/PasswordPassword/grabber.PNG" id="7_4kpch"]
-[ext_resource type="StyleBox" uid="uid://dgmyaldc7fny8" path="res://Tres/music_bar.tres" id="7_bmxlf"]
+[ext_resource type="Theme" uid="uid://c734qb2yljwuf" path="res://Art/theme.tres" id="6_frkhe"]
+[ext_resource type="Script" uid="uid://bjgnbslmqgp6s" path="res://Scripts/reaveal.gd" id="7_frkhe"]
 [ext_resource type="Texture2D" uid="uid://jh1xgheai4do" path="res://Art/PasswordPassword/prev.svg" id="7_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://ofhvh7ja7db8" path="res://Art/gradient.png" id="8_1p5hy"]
 [ext_resource type="Texture2D" uid="uid://d3rqxb8vumv54" path="res://Art/PasswordPassword/pause.svg" id="8_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://b3v8syvd33qre" path="res://Art/PasswordPassword/next.svg" id="9_bmxlf"]
+[ext_resource type="Script" uid="uid://5y4raqejqy12" path="res://Scripts/playlist_list.gd" id="9_erwvk"]
 [ext_resource type="Shader" uid="uid://c45f21een78pt" path="res://Shaders/hue_shift2.gdshader" id="11_4kpch"]
 
-[sub_resource type="Image" id="Image_grg3l"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 4
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_frkhe"]
-image = SubResource("Image_grg3l")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p5hy"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.321569, 0.14902, 0.243137, 1)
-
-[sub_resource type="Theme" id="Theme_4kpch"]
-HSlider/constants/center_grabber = 0
-HSlider/constants/grabber_offset = 0
-HSlider/icons/grabber = ExtResource("7_4kpch")
-HSlider/icons/grabber_disabled = ExtResource("7_4kpch")
-HSlider/icons/grabber_highlight = ExtResource("7_4kpch")
-HSlider/icons/tick = SubResource("ImageTexture_frkhe")
-HSlider/styles/grabber_area = ExtResource("7_bmxlf")
-HSlider/styles/grabber_area_highlight = ExtResource("7_bmxlf")
-HSlider/styles/slider = SubResource("StyleBoxFlat_1p5hy")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erwvk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.321569, 0.14902, 0.243137, 1)
+expand_margin_top = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jw32o"]
 shader = ExtResource("11_4kpch")
-shader_parameter/hue_shift = 0.784
-shader_parameter/saturation_mult = 0.681
+shader_parameter/hue_shift = 0.0
+shader_parameter/saturation_mult = 1.0
 shader_parameter/value_mult = 1.0
 shader_parameter/keep_dark = true
 
@@ -98,6 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 tooltip_text = "Click to change time formatting"
 focus_mode = 0
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="Date" type="Label" parent="DateTime"]
@@ -116,41 +99,148 @@ grow_horizontal = 2
 grow_vertical = 2
 tooltip_text = "Click to change date formatting"
 focus_mode = 0
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="Timer" type="Timer" parent="DateTime"]
 
-[node name="Music" type="VBoxContainer" parent="."]
+[node name="Playlists" type="Control" parent="." node_paths=PackedStringArray("button")]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.99
-anchor_top = 1.0
+anchor_top = 0.975
 anchor_right = 0.99
-anchor_bottom = 1.0
-offset_left = -262.39
-offset_top = -124.0
+anchor_bottom = 0.975
+offset_left = -300.39
 offset_right = -0.390137
 grow_horizontal = 0
 grow_vertical = 0
-alignment = 1
-script = ExtResource("5_grg3l")
+mouse_filter = 1
+script = ExtResource("5_erwvk")
+button = NodePath("PlaylistsPannel/Pull/PullButton")
+baseline_offset = -100.0
+max_offset = -500.0
 
-[node name="Song" type="Label" parent="Music"]
+[node name="PlaylistsPannel" type="VBoxContainer" parent="Playlists"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+
+[node name="Pull" type="Panel" parent="Playlists/PlaylistsPannel"]
+z_index = 2
+custom_minimum_size = Vector2(100, 17.3425)
 layout_mode = 2
-text = "tetsudou_no_uta.mp3"
+size_flags_horizontal = 4
+theme = ExtResource("6_frkhe")
+
+[node name="PullTex" type="TextureRect" parent="Playlists/PlaylistsPannel/Pull" node_paths=PackedStringArray("pos")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -26.6712
+offset_right = 20.0
+offset_bottom = 8.32875
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_1p5hy")
+expand_mode = 3
+script = ExtResource("7_frkhe")
+pos = NodePath("Marker2D")
+max = 70.0
+min = 50.0
+
+[node name="Marker2D" type="Marker2D" parent="Playlists/PlaylistsPannel/Pull/PullTex"]
+position = Vector2(19, 3)
+
+[node name="PullButton" type="Button" parent="Playlists/PlaylistsPannel/Pull"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="Panel" type="Panel" parent="Playlists/PlaylistsPannel"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_erwvk")
+
+[node name="PlaylistsScroll" type="ScrollContainer" parent="Playlists/PlaylistsPannel/Panel"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="PlaylistList" type="VBoxContainer" parent="Playlists/PlaylistsPannel/Panel/PlaylistsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("9_erwvk")
+
+[node name="Music" type="VBoxContainer" parent="Playlists" node_paths=PackedStringArray("time_from_start", "total_time", "pause", "previous", "next", "progress", "song")]
+z_index = 2
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -78.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+alignment = 2
+script = ExtResource("5_grg3l")
+time_from_start = NodePath("Buttons/TimeFromStart")
+total_time = NodePath("Buttons/TotalTime")
+pause = NodePath("Buttons/Pause")
+previous = NodePath("Buttons/Previous")
+next = NodePath("Buttons/Next")
+progress = NodePath("Progress")
+song = NodePath("Song")
+
+[node name="Spacer" type="Control" parent="Playlists/Music"]
+custom_minimum_size = Vector2(0, 6.7115)
+layout_mode = 2
+
+[node name="Song" type="Label" parent="Playlists/Music"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "mpaweaaaaa.mdp"
 label_settings = ExtResource("6_50glp")
 horizontal_alignment = 1
 vertical_alignment = 1
+clip_text = true
 
-[node name="Progress" type="HSlider" parent="Music"]
+[node name="Progress" type="HSlider" parent="Playlists/Music"]
+z_index = 1
 layout_mode = 2
-theme = SubResource("Theme_4kpch")
+focus_mode = 0
+theme = ExtResource("6_frkhe")
+step = 0.1
 
-[node name="Buttons" type="HBoxContainer" parent="Music"]
+[node name="Buttons" type="HBoxContainer" parent="Playlists/Music"]
 layout_mode = 2
 alignment = 1
 
-[node name="TimeFromStart" type="Label" parent="Music/Buttons"]
+[node name="TimeFromStart" type="Label" parent="Playlists/Music/Buttons"]
 custom_minimum_size = Vector2(0, 23.968)
 layout_mode = 2
 text = "2:38"
@@ -158,38 +248,41 @@ label_settings = ExtResource("4_jw32o")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Previous" type="Button" parent="Music/Buttons"]
+[node name="Previous" type="Button" parent="Playlists/Music/Buttons"]
 custom_minimum_size = Vector2(27.644, 21.247)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+focus_mode = 0
 icon = ExtResource("7_vy5pj")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Pause" type="Button" parent="Music/Buttons"]
+[node name="Pause" type="Button" parent="Playlists/Music/Buttons"]
 custom_minimum_size = Vector2(16.9995, 20.594)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
+focus_mode = 0
 icon = ExtResource("8_vy5pj")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Next" type="Button" parent="Music/Buttons"]
+[node name="Next" type="Button" parent="Playlists/Music/Buttons"]
 custom_minimum_size = Vector2(33.3005, 21.247)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+focus_mode = 0
 icon = ExtResource("9_bmxlf")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TotalTime" type="Label" parent="Music/Buttons"]
+[node name="TotalTime" type="Label" parent="Playlists/Music/Buttons"]
 custom_minimum_size = Vector2(0, 23.968)
 layout_mode = 2
 text = "3:36"
@@ -197,10 +290,24 @@ label_settings = ExtResource("4_jw32o")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="Music"]
+[node name="PlaylistGradient" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.856
+anchor_top = 0.866
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("8_1p5hy")
+expand_mode = 3
 
 [node name="Filter" type="ColorRect" parent="."]
-visible = false
+z_index = 8
 material = SubResource("ShaderMaterial_jw32o")
 layout_mode = 1
 anchors_preset = 15
@@ -214,6 +321,10 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="DateTime/Time/TimeButton" to="DateTime" method="_on_time_button_pressed"]
 [connection signal="pressed" from="DateTime/Date/DateButton" to="DateTime" method="_on_date_button_pressed"]
 [connection signal="timeout" from="DateTime/Timer" to="DateTime" method="_on_timer_timeout"]
-[connection signal="pressed" from="Music/Buttons/Previous" to="Music" method="_on_previous_pressed"]
-[connection signal="pressed" from="Music/Buttons/Pause" to="Music" method="_on_pause_pressed"]
-[connection signal="pressed" from="Music/Buttons/Next" to="Music" method="_on_next_pressed"]
+[connection signal="button_down" from="Playlists/PlaylistsPannel/Pull/PullButton" to="Playlists" method="_on_button_press"]
+[connection signal="button_up" from="Playlists/PlaylistsPannel/Pull/PullButton" to="Playlists" method="_on_button_release"]
+[connection signal="drag_ended" from="Playlists/Music/Progress" to="Playlists/Music" method="_on_progress_drag_ended"]
+[connection signal="drag_started" from="Playlists/Music/Progress" to="Playlists/Music" method="_on_progress_drag_started"]
+[connection signal="pressed" from="Playlists/Music/Buttons/Previous" to="Playlists/Music" method="_on_previous_pressed"]
+[connection signal="pressed" from="Playlists/Music/Buttons/Pause" to="Playlists/Music" method="_on_pause_pressed"]
+[connection signal="pressed" from="Playlists/Music/Buttons/Next" to="Playlists/Music" method="_on_next_pressed"]

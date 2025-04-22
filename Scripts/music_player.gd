@@ -1,24 +1,48 @@
-extends VBoxContainer
+extends Node
 
-@onready var time_from_start: Label = $Buttons/TimeFromStart
-@onready var total_time: Label = $Buttons/TotalTime
-@onready var pause: Button = $Buttons/Pause
-@onready var progress: HSlider = $Progress
-@onready var song: Label = $Song
-
-const SONG_DIRECTORY = "user://playlists"
+@export var time_from_start: Label
+@export var total_time: Label
+@export var pause: Button
+@export var previous: Button
+@export var next: Button
+@export var progress: HSlider
+@export var song: Label
 
 func _ready() -> void:
-	print(DirAccess.get_directories_at(SONG_DIRECTORY))
+	connect_to_player()
 
-
-func _on_previous_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_pause_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_next_pressed() -> void:
-	pass # Replace with function body.
+func connect_to_player():
+	if Music.time_from_start: 
+		time_from_start.text = Music.time_from_start.text
+	Music.time_from_start = time_from_start
+	
+	if Music.total_time:
+		time_from_start.total_time = Music.total_time.text
+	Music.total_time = total_time
+	
+	if Music.pause_button:
+		pause.icon = Music.pause_button.icon
+	Music.pause_button = pause
+	
+	if Music.progress:
+		progress.max_value = Music.progress.max_value
+		progress.value = Music.progress.value
+	Music.progress = progress
+	
+	if Music.song:
+		song.text = Music.song.text
+	Music.song = song
+	
+	previous.pressed.connect(Music.on_previous_pressed)
+	next.pressed.connect(Music.on_next_pressed)
+	pause.pressed.connect(Music.on_pause_pressed)
+	progress.drag_started.connect(Music.on_progress_drag_started)
+	progress.drag_ended.connect(Music.on_progress_drag_ended)
+	
+	
+#func on_previous_pressed()
+#func on_next_pressed()
+#func on_pause_pressed()
+#func on_progress_drag_started()
+#func on_progress_drag_ended(value_changed: bool)
+	
