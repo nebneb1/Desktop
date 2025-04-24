@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dso4oc7o1iu17"]
+
+[ext_resource type="FontFile" uid="uid://dlebot7tcxf4j" path="res://Text/Fonts/Courier Std Medium.otf" id="1_w7644"]
+
+[resource]
+font = ExtResource("1_w7644")
+font_size = 18
+font_color = Color(0.67451, 0.196078, 0.196078, 1)

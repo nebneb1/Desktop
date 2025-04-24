@@ -1,0 +1,484 @@
+[gd_scene load_steps=29 format=3 uid="uid://bx73ir113nmvp"]
+
+[ext_resource type="Theme" uid="uid://c734qb2yljwuf" path="res://Art/theme.tres" id="2_xia24"]
+[ext_resource type="Script" uid="uid://bjgnbslmqgp6s" path="res://Scripts/reaveal.gd" id="3_1ubiw"]
+[ext_resource type="Texture2D" uid="uid://bhgwfefom1s16" path="res://Art/Icons/minimize_200dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png" id="4_1g4vo"]
+[ext_resource type="Script" uid="uid://5y4raqejqy12" path="res://Scripts/playlist_list.gd" id="5_en24w"]
+[ext_resource type="Script" uid="uid://kuphvssglttl" path="res://Scripts/action_buttons.gd" id="6_s6ynv"]
+[ext_resource type="Texture2D" uid="uid://bduun3sagpewe" path="res://Art/Icons/graph_off_alt.png" id="7_tdmiq"]
+[ext_resource type="Texture2D" uid="uid://cuqmhss7tv8ng" path="res://Art/Icons/stream_off_alt.png" id="8_p0l62"]
+[ext_resource type="Texture2D" uid="uid://c4238fraujwk8" path="res://Art/Icons/download_200dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png" id="9_en24w"]
+[ext_resource type="Texture2D" uid="uid://r3bvpxncdbhw" path="res://Art/Icons/visibility_off.png" id="9_y62xr"]
+[ext_resource type="Script" uid="uid://40c5mptxpf0l" path="res://Scripts/music_player.gd" id="10_lkxvo"]
+[ext_resource type="Texture2D" uid="uid://dpfmihu3coufq" path="res://Art/Icons/download_off.png" id="10_s6ynv"]
+[ext_resource type="LabelSettings" uid="uid://dnyaml8165uxg" path="res://Text/Settings/Text.tres" id="11_3qwwx"]
+[ext_resource type="Script" uid="uid://c0sljaemwaf73" path="res://Scripts/text_scroll.gd" id="12_h46w6"]
+[ext_resource type="Texture2D" uid="uid://ofhvh7ja7db8" path="res://Art/gradient.png" id="13_opxm4"]
+[ext_resource type="LabelSettings" uid="uid://4erwfha5e2cm" path="res://Text/Settings/Sub.tres" id="14_wmks0"]
+[ext_resource type="Texture2D" uid="uid://jh1xgheai4do" path="res://Art/PasswordPassword/prev.svg" id="15_mxhsf"]
+[ext_resource type="Texture2D" uid="uid://d3rqxb8vumv54" path="res://Art/PasswordPassword/pause.svg" id="16_22qq7"]
+[ext_resource type="Texture2D" uid="uid://b3v8syvd33qre" path="res://Art/PasswordPassword/next.svg" id="17_ce3m3"]
+[ext_resource type="Script" uid="uid://dnhhr4nve5fuk" path="res://Scenes/image_scroll.gd" id="17_xia24"]
+[ext_resource type="Shader" uid="uid://ctm3t6psg6w48" path="res://Shaders/milk_pix.gdshader" id="18_1g4vo"]
+[ext_resource type="Texture2D" uid="uid://dkkv6ds45b8p" path="res://Art/lucidrown.png" id="19_1ubiw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swy6a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b22xj"]
+bg_color = Color(0.0509804, 0.0509804, 0.0784314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.321569, 0.14902, 0.243137, 1)
+expand_margin_top = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyfvl"]
+bg_color = Color(0.0509804, 0.0509804, 0.0784314, 1)
+border_width_left = 2
+border_width_bottom = 2
+border_color = Color(0.321569, 0.14902, 0.243137, 1)
+expand_margin_left = 7.0
+expand_margin_top = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ubiw"]
+shader = ExtResource("18_1g4vo")
+shader_parameter/bright = Color(0.67451, 0.196078, 0.196078, 1)
+shader_parameter/medium = Color(0.321569, 0.14902, 0.243137, 1)
+shader_parameter/dark = Color(0.0509804, 0.0509804, 0.0784314, 1)
+shader_parameter/bright_thresh = 0.467
+shader_parameter/medium_thresh = 0.362
+shader_parameter/pixel_size = 3
+shader_parameter/alpha = 0.0
+shader_parameter/brightness = 1.0
+
+[sub_resource type="Animation" id="Animation_1ubiw"]
+resource_name = "fade_in"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:material:shader_parameter/alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_1g4vo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:material:shader_parameter/alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_en24w"]
+_data = {
+&"RESET": SubResource("Animation_1g4vo"),
+&"fade_in": SubResource("Animation_1ubiw")
+}
+
+[node name="MusicPlayerMargins" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 11
+
+[node name="MusicPlayer" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Playlists" type="Control" parent="MusicPlayer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -567.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="PlaylistsPannel" type="VBoxContainer" parent="MusicPlayer/Playlists"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 577.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="MusicPlayer/Playlists/PlaylistsPannel"]
+custom_minimum_size = Vector2(0, 18.0535)
+layout_mode = 2
+
+[node name="Pull" type="Panel" parent="MusicPlayer/Playlists/PlaylistsPannel"]
+visible = false
+z_index = 2
+custom_minimum_size = Vector2(100, 17.3425)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme = ExtResource("2_xia24")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_swy6a")
+
+[node name="PullTex" type="TextureRect" parent="MusicPlayer/Playlists/PlaylistsPannel/Pull"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.6712
+offset_right = 20.0
+offset_bottom = 11.3287
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_1g4vo")
+expand_mode = 3
+
+[node name="Marker2D" type="Marker2D" parent="MusicPlayer/Playlists/PlaylistsPannel/Pull/PullTex"]
+position = Vector2(19, 3)
+
+[node name="PullButton" type="Button" parent="MusicPlayer/Playlists/PlaylistsPannel/Pull"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+offset_bottom = -0.342501
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="Panel" type="Panel" parent="MusicPlayer/Playlists/PlaylistsPannel"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b22xj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 535.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+
+[node name="PlaylistsScroll" type="ScrollContainer" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+theme = ExtResource("2_xia24")
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="PlaylistList" type="VBoxContainer" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/MarginContainer/PlaylistsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_en24w")
+
+[node name="ColorRect" type="ColorRect" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_right = -9.0
+offset_bottom = 33.0
+grow_horizontal = 0
+pivot_offset = Vector2(44.9949, 16.233)
+color = Color(0.052, 0.052, 0.08, 0.588235)
+script = ExtResource("3_1ubiw")
+max = 120.0
+
+[node name="ActionButtonsMargins" type="MarginContainer" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_right = -16.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 2
+
+[node name="ActionButtons" type="HBoxContainer" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+script = ExtResource("6_s6ynv")
+
+[node name="PlayAfter" type="TextureButton" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_xia24")
+texture_normal = ExtResource("7_tdmiq")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_1ubiw")
+max = 60.0
+min = 50.0
+
+[node name="Shuffle" type="TextureButton" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("8_p0l62")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_1ubiw")
+max = 70.0
+min = 50.0
+
+[node name="Boot" type="TextureButton" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("9_y62xr")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_1ubiw")
+max = 70.0
+min = 50.0
+
+[node name="Download" type="TextureButton" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_xia24")
+texture_normal = ExtResource("10_s6ynv")
+texture_pressed = ExtResource("10_s6ynv")
+texture_hover = ExtResource("9_en24w")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_1ubiw")
+max = 60.0
+min = 50.0
+
+[node name="Panel" type="Panel" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins" node_paths=PackedStringArray("pos")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyfvl")
+script = ExtResource("3_1ubiw")
+pos = NodePath("Marker2D")
+max = 100.0
+min = 80.0
+
+[node name="Marker2D" type="Marker2D" parent="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/Panel"]
+position = Vector2(39.9315, 0)
+
+[node name="Music" type="VBoxContainer" parent="MusicPlayer/Playlists" node_paths=PackedStringArray("time_from_start", "total_time", "pause", "previous", "next", "progress", "song", "action_buttons", "playlist_list")]
+z_index = 2
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 0
+alignment = 2
+script = ExtResource("10_lkxvo")
+time_from_start = NodePath("Buttons/TimeFromStart")
+total_time = NodePath("Buttons/TotalTime")
+pause = NodePath("Buttons/PauseMargins/Pause")
+previous = NodePath("Buttons/PreviousMargins/Previous")
+next = NodePath("Buttons/NextMargins/Next")
+progress = NodePath("Progress")
+song = NodePath("Song")
+action_buttons = NodePath("../PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons")
+playlist_list = NodePath("../PlaylistsPannel/Panel/MarginContainer/PlaylistsScroll/PlaylistList")
+
+[node name="Spacer" type="Control" parent="MusicPlayer/Playlists/Music"]
+custom_minimum_size = Vector2(0, 6.7115)
+layout_mode = 2
+
+[node name="Song" type="Label" parent="MusicPlayer/Playlists/Music"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "mpaweaaaaaaaaaaaaaa.mdp"
+label_settings = ExtResource("11_3qwwx")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("12_h46w6")
+max_chars = 23
+
+[node name="TextureRect" type="TextureRect" parent="MusicPlayer/Playlists/Music/Song"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 29.0
+offset_bottom = 23.0
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(20.647, 10.8835)
+texture = ExtResource("13_opxm4")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MusicPlayer/Playlists/Music/Song"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = 9.0
+offset_right = 5.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+scale = Vector2(1, -1)
+pivot_offset = Vector2(20.647, 10.8835)
+texture = ExtResource("13_opxm4")
+expand_mode = 3
+
+[node name="Progress" type="HSlider" parent="MusicPlayer/Playlists/Music"]
+z_index = 1
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_xia24")
+step = 0.1
+
+[node name="Buttons" type="HBoxContainer" parent="MusicPlayer/Playlists/Music"]
+z_index = 1
+layout_mode = 2
+alignment = 1
+
+[node name="TimeFromStart" type="Label" parent="MusicPlayer/Playlists/Music/Buttons"]
+custom_minimum_size = Vector2(0, 23.968)
+layout_mode = 2
+text = "2:38"
+label_settings = ExtResource("14_wmks0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PreviousMargins" type="MarginContainer" parent="MusicPlayer/Playlists/Music/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="Previous" type="TextureButton" parent="MusicPlayer/Playlists/Music/Buttons/PreviousMargins"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("15_mxhsf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PauseMargins" type="MarginContainer" parent="MusicPlayer/Playlists/Music/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.16
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="Pause" type="TextureButton" parent="MusicPlayer/Playlists/Music/Buttons/PauseMargins"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("16_22qq7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NextMargins" type="MarginContainer" parent="MusicPlayer/Playlists/Music/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="Next" type="TextureButton" parent="MusicPlayer/Playlists/Music/Buttons/NextMargins"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("17_ce3m3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TotalTime" type="Label" parent="MusicPlayer/Playlists/Music/Buttons"]
+custom_minimum_size = Vector2(0, 23.968)
+layout_mode = 2
+text = "3:36"
+label_settings = ExtResource("14_wmks0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PlaylistGradient" type="TextureRect" parent="MusicPlayer"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -149.0
+offset_right = 30.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("13_opxm4")
+expand_mode = 3
+
+[node name="ImageScroll" type="Node2D" parent="."]
+script = ExtResource("17_xia24")
+
+[node name="Image" type="TextureRect" parent="ImageScroll"]
+material = SubResource("ShaderMaterial_1ubiw")
+offset_right = 1342.0
+offset_bottom = 640.0
+mouse_filter = 2
+texture = ExtResource("19_1ubiw")
+stretch_mode = 4
+
+[node name="AFK" type="Timer" parent="ImageScroll"]
+one_shot = true
+
+[node name="Fade" type="AnimationPlayer" parent="ImageScroll"]
+libraries = {
+&"": SubResource("AnimationLibrary_en24w")
+}
+
+[connection signal="button_down" from="MusicPlayer/Playlists/PlaylistsPannel/Pull/PullButton" to="MusicPlayer/Playlists" method="_on_button_press"]
+[connection signal="button_up" from="MusicPlayer/Playlists/PlaylistsPannel/Pull/PullButton" to="MusicPlayer/Playlists" method="_on_button_release"]
+[connection signal="pressed" from="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons/PlayAfter" to="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons" method="_on_play_after_pressed"]
+[connection signal="pressed" from="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons/Shuffle" to="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons" method="_on_shuffle_pressed"]
+[connection signal="pressed" from="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons/Boot" to="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons" method="_on_boot_pressed"]
+[connection signal="pressed" from="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons/Download" to="MusicPlayer/Playlists/PlaylistsPannel/Panel/ActionButtonsMargins/ActionButtons" method="_on_download_pressed"]
+[connection signal="drag_ended" from="MusicPlayer/Playlists/Music/Progress" to="MusicPlayer/Playlists/Music" method="_on_progress_drag_ended"]
+[connection signal="drag_started" from="MusicPlayer/Playlists/Music/Progress" to="MusicPlayer/Playlists/Music" method="_on_progress_drag_started"]
+[connection signal="timeout" from="ImageScroll/AFK" to="ImageScroll" method="_on_afk_timeout"]

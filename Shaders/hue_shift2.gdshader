@@ -2,8 +2,9 @@ shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform float hue_shift : hint_range(0.0, 1.0) = 0.0; 
-uniform float saturation_mult : hint_range(0.0, 2.0) = 1.0; 
-uniform float value_mult : hint_range(0.0, 2.0) = 1.0;
+uniform float saturation_mult : hint_range(0.0, 5.0) = 1.0; 
+uniform float value_mult : hint_range(0.0, 5.0) = 1.0;
+uniform float contrast : hint_range(0.5, 4.0) = 1.0;
 uniform bool keep_dark = true;
 
 vec3 rgb2hsv(vec3 c) {
@@ -58,6 +59,7 @@ void fragment() {
 		hsv.z *= value_mult; 
 		pixelColor.rgb = hsv2rgb(hsv);
 	}
+	pixelColor = pow(pixelColor * contrast, vec4(contrast));
 	
 	COLOR = pixelColor;
 }

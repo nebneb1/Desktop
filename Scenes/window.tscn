@@ -1,0 +1,230 @@
+[gd_scene load_steps=13 format=3 uid="uid://cnnw20enseojb"]
+
+[ext_resource type="Theme" uid="uid://c734qb2yljwuf" path="res://Art/theme.tres" id="1_efths"]
+[ext_resource type="Script" uid="uid://s7scbws2ce66" path="res://Scripts/window_controller.gd" id="2_swy6a"]
+[ext_resource type="Texture2D" uid="uid://c4238fraujwk8" path="res://Art/Icons/download_200dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png" id="7_pff0d"]
+[ext_resource type="LabelSettings" uid="uid://dnyaml8165uxg" path="res://Text/Settings/Text.tres" id="11_eopsj"]
+[ext_resource type="LabelSettings" uid="uid://4erwfha5e2cm" path="res://Text/Settings/Sub.tres" id="14_58mco"]
+[ext_resource type="Texture2D" uid="uid://dk15qqqj6bp0h" path="res://Art/Icons/close_200dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png" id="18_b672n"]
+[ext_resource type="Texture2D" uid="uid://tq5jsqtackq6" path="res://Art/Icons/minimize_off.png" id="19_rkxfo"]
+[ext_resource type="Texture2D" uid="uid://dqwuscjm8o4da" path="res://Art/Icons/minimize_200dp_FFFFFF_FILL0_wght400_GRAD0_opsz48 (1).png" id="20_p3pji"]
+[ext_resource type="Texture2D" uid="uid://bd82grl3ttodx" path="res://Art/Icons/close_off.png" id="21_x61fc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_466w7"]
+bg_color = Color(0.052, 0.052, 0.08, 0)
+border_width_left = 2
+border_width_top = 30
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.321569, 0.14902, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6jib"]
+bg_color = Color(0.052, 0.052, 0.08, 0.721569)
+border_width_left = 2
+border_width_top = 30
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eopsj"]
+bg_color = Color(0.0509804, 0.0509804, 0.0784314, 1)
+
+[node name="Window" type="Window"]
+transparent_bg = true
+title = "Window"
+size = Vector2i(554, 188)
+transient = true
+unresizable = true
+borderless = true
+transparent = true
+theme = ExtResource("1_efths")
+script = ExtResource("2_swy6a")
+
+[node name="WindowControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowUI" type="Control" parent="WindowControl"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Foreground" type="Panel" parent="WindowControl/WindowUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_466w7")
+
+[node name="BG" type="Panel" parent="WindowControl/WindowUI"]
+z_index = -30
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6jib")
+
+[node name="TopBar" type="Control" parent="WindowControl/WindowUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+
+[node name="Buttons" type="HBoxContainer" parent="WindowControl/WindowUI/TopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Drag" type="Button" parent="WindowControl/WindowUI/TopBar/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.03
+focus_mode = 0
+flat = true
+
+[node name="MinimizeMargin" type="MarginContainer" parent="WindowControl/WindowUI/TopBar/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="MinimizeBG" type="Panel" parent="WindowControl/WindowUI/TopBar/Buttons/MinimizeMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eopsj")
+
+[node name="Minimize" type="TextureButton" parent="WindowControl/WindowUI/TopBar/Buttons/MinimizeMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("19_rkxfo")
+texture_pressed = ExtResource("20_p3pji")
+texture_hover = ExtResource("20_p3pji")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitMargin" type="MarginContainer" parent="WindowControl/WindowUI/TopBar/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ExitBG" type="Panel" parent="WindowControl/WindowUI/TopBar/Buttons/ExitMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eopsj")
+
+[node name="Exit" type="TextureButton" parent="WindowControl/WindowUI/TopBar/Buttons/ExitMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("21_x61fc")
+texture_pressed = ExtResource("18_b672n")
+texture_hover = ExtResource("18_b672n")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="WindowControl/WindowUI/TopBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+offset_left = 3.0
+offset_right = 33.0
+offset_bottom = 30.0
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+texture = ExtResource("7_pff0d")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="WindowControl/WindowUI/TopBar"]
+custom_minimum_size = Vector2(0, 45.0945)
+layout_mode = 2
+offset_left = 41.0
+offset_top = -4.0
+offset_right = 192.0
+offset_bottom = 41.0945
+text = "Download"
+label_settings = ExtResource("11_eopsj")
+vertical_alignment = 1
+
+[node name="Spawn" type="Marker2D" parent="WindowControl/WindowUI"]
+position = Vector2(169, 15)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.66
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4.02MiB at 6.88MiB/s"
+label_settings = ExtResource("14_58mco")
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0.5839776992797852"
+label_settings = ExtResource("14_58mco")
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_efths")
+placeholder_text = " Where to?"
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_efths")
+max_value = 26.0
+value = 3.39
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "2/26"
+label_settings = ExtResource("14_58mco")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "iDx0FJNBrRc | Olivia O. - In the Air (Official Video)"
+label_settings = ExtResource("14_58mco")
+clip_text = true
+
+[connection signal="button_down" from="WindowControl/WindowUI/TopBar/Buttons/Drag" to="." method="_on_drag_button_down"]
+[connection signal="button_up" from="WindowControl/WindowUI/TopBar/Buttons/Drag" to="." method="_on_drag_button_up"]
+[connection signal="pressed" from="WindowControl/WindowUI/TopBar/Buttons/MinimizeMargin/Minimize" to="." method="_on_minimize_pressed"]
+[connection signal="pressed" from="WindowControl/WindowUI/TopBar/Buttons/ExitMargin/Exit" to="." method="_on_exit_pressed"]

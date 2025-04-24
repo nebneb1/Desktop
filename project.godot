@@ -23,6 +23,8 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/global.gd"
 Music="*res://Scenes/music_player.tscn"
+PositionRefrence="*res://Scenes/position_refrence.tscn"
+WindowManager="*res://Scripts/window_manager.gd"
 
 [display]
 
@@ -31,6 +33,7 @@ window/size/viewport_height=1080
 window/size/resizable=false
 window/size/borderless=true
 window/size/transparent=true
+window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
 
 [input]

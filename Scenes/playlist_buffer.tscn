@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cpa2bo1xs3qsa"]
+
+[node name="PlaylistSelection" type="MarginContainer"]
+offset_right = 293.0
+offset_bottom = 148.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 43
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 12
